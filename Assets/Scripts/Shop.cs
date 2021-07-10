@@ -49,11 +49,15 @@ public class Shop : MonoBehaviour
     {
         catalog.SetActive(true);
         HideInteraction();
+
+        AudioManager.instance.PlaySingleClip((int)SoundIndexes.OPEN);
     }
 
     public void CloseCatalog()
     {
         catalog.SetActive(false);
+
+        AudioManager.instance.PlaySingleClip((int)SoundIndexes.CLOSE);
     }
 
     public void ShowInteraction()
@@ -79,7 +83,9 @@ public class Shop : MonoBehaviour
             currentPageIndex -= 1;
             catalogPage.color = pageColors[currentPageIndex];
             pages[currentPageIndex].SetActive(true);
-        }   
+
+            AudioManager.instance.PlaySingleClip((int)SoundIndexes.SELECT);
+        }
     }
 
     public void TurnCatalogPageRight()
@@ -94,6 +100,8 @@ public class Shop : MonoBehaviour
             currentPageIndex += 1;
             catalogPage.color = pageColors[currentPageIndex];
             pages[currentPageIndex].SetActive(true);
+
+            AudioManager.instance.PlaySingleClip((int)SoundIndexes.SELECT);
         }
     }
 
@@ -110,6 +118,10 @@ public class Shop : MonoBehaviour
                     CharacterManager.instance.characterInventory.AddHeadClothing(clothing);
                 }
             }
+            else
+            {
+                AudioManager.instance.PlaySingleClip((int)SoundIndexes.ERROR);
+            }
         }
     }
 
@@ -125,6 +137,10 @@ public class Shop : MonoBehaviour
                 {
                     CharacterManager.instance.characterInventory.AddBodyClothing(clothing);
                 }
+            }
+            else
+            {
+                AudioManager.instance.PlaySingleClip((int)SoundIndexes.ERROR);
             }
         }
     }

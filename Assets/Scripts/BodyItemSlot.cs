@@ -25,8 +25,12 @@ public class BodyItemSlot : MonoBehaviour
     public void SellClothing()
     {
         if (CharacterManager.instance.characterEquipment.CheckIfBodyClothingEquipped(bodyClothing))
-            return;
+        {
+            AudioManager.instance.PlaySingleClip((int)SoundIndexes.ERROR);
 
+            return;
+        }
+            
         CurrencyManager.instance.UpgradeCurrencyCount(bodyClothing.Price);
         CharacterManager.instance.characterInventory.RemoveBodyClothing(bodyClothing);
         Destroy(gameObject);

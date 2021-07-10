@@ -34,11 +34,15 @@ public class CharacterInventory : MonoBehaviour
     {
         inventoryPanel.SetActive(true);
         HideInteraction();
+
+        AudioManager.instance.PlaySingleClip((int)SoundIndexes.OPEN);
     }
 
     public void CloseInventory()
     {
         inventoryPanel.SetActive(false);
+
+        AudioManager.instance.PlaySingleClip((int)SoundIndexes.CLOSE);
     }
 
     public void ShowInteraction()
@@ -60,6 +64,7 @@ public class CharacterInventory : MonoBehaviour
         HeadItemSlot headItemSlot = newItemSlot.AddComponent<HeadItemSlot>();
         headItemSlot.headClothing = clothing;
 
+        AudioManager.instance.PlaySingleClip((int)SoundIndexes.BUY_OR_SELL);
     }
 
     public void AddBodyClothing(BodyClothing clothing)
@@ -69,15 +74,21 @@ public class CharacterInventory : MonoBehaviour
         GameObject newItemSlot = Instantiate(itemSlot, equipmentPanel.transform);
         BodyItemSlot bodyItemSlot = newItemSlot.AddComponent<BodyItemSlot>();
         bodyItemSlot.bodyClothing = clothing;
+
+        AudioManager.instance.PlaySingleClip((int)SoundIndexes.BUY_OR_SELL);
     }
 
     public void RemoveHeadClothing(HeadClothing clothing)
     {
         ownedHeadClothing.Remove(clothing);
+
+        AudioManager.instance.PlaySingleClip((int)SoundIndexes.BUY_OR_SELL);
     }
 
     public void RemoveBodyClothing(BodyClothing clothing)
     {
         ownedBodyClothing.Remove(clothing);
+
+        AudioManager.instance.PlaySingleClip((int)SoundIndexes.BUY_OR_SELL);
     }
 }

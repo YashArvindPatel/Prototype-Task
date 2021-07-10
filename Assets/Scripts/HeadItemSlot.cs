@@ -25,8 +25,12 @@ public class HeadItemSlot : MonoBehaviour
     public void SellClothing()
     {
         if (CharacterManager.instance.characterEquipment.CheckIfHeadClothingEquipped(headClothing))
-            return;
+        {
+            AudioManager.instance.PlaySingleClip((int)SoundIndexes.ERROR);
 
+            return;
+        }
+            
         CurrencyManager.instance.UpgradeCurrencyCount(headClothing.Price);
         CharacterManager.instance.characterInventory.RemoveHeadClothing(headClothing);
         Destroy(gameObject);

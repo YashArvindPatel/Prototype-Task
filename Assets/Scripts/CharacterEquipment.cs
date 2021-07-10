@@ -77,6 +77,8 @@ public class CharacterEquipment : MonoBehaviour
         backHelmet.sprite = clothing.BackHead;
 
         currentHeadClothing = clothing;
+
+        AudioManager.instance.PlaySingleClip((int)SoundIndexes.EQUIP);
     }
 
     public void EquipBodyClothing(BodyClothing clothing)
@@ -115,5 +117,7 @@ public class CharacterEquipment : MonoBehaviour
         backLegR.sprite = clothing.BackLegR;
 
         currentBodyClothing = clothing;
+
+        AudioManager.instance.PlaySingleClip((int)SoundIndexes.EQUIP);
     }
 }
