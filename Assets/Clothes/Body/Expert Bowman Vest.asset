@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3752b13b93059c44a978a3c45f549923, type: 3}
+  m_Name: Expert Bowman Vest
+  m_EditorClassIdentifier: 
+  BodyIcon: {fileID: 21300000, guid: 82cb3dd52d3c3f041a639d19321150b8, type: 3}
+  FrontBody: {fileID: 21300004, guid: d9b2be55118a1ed428f1334abe7b519e, type: 3}
+  FrontArmL: {fileID: 21300006, guid: d9b2be55118a1ed428f1334abe7b519e, type: 3}
+  FrontSleeveL: {fileID: 21300044, guid: d9b2be55118a1ed428f1334abe7b519e, type: 3}
+  FrontHandL: {fileID: 21300036, guid: d9b2be55118a1ed428f1334abe7b519e, type: 3}
+  FrontArmR: {fileID: 21300002, guid: d9b2be55118a1ed428f1334abe7b519e, type: 3}
+  FrontSleeveR: {fileID: 21300050, guid: d9b2be55118a1ed428f1334abe7b519e, type: 3}
+  FrontHandR: {fileID: 21300048, guid: d9b2be55118a1ed428f1334abe7b519e, type: 3}
+  FrontLegL: {fileID: 21300010, guid: d9b2be55118a1ed428f1334abe7b519e, type: 3}
+  FrontLegR: {fileID: 21300008, guid: d9b2be55118a1ed428f1334abe7b519e, type: 3}
+  LeftBody: {fileID: 21300028, guid: d9b2be55118a1ed428f1334abe7b519e, type: 3}
+  LeftArmL: {fileID: 21300034, guid: d9b2be55118a1ed428f1334abe7b519e, type: 3}
+  LeftHandL: {fileID: 21300040, guid: d9b2be55118a1ed428f1334abe7b519e, type: 3}
+  LeftFingersR: {fileID: 21300058, guid: d9b2be55118a1ed428f1334abe7b519e, type: 3}
+  LeftArmR: {fileID: 21300026, guid: d9b2be55118a1ed428f1334abe7b519e, type: 3}
+  LeftSleeveL: {fileID: 21300056, guid: d9b2be55118a1ed428f1334abe7b519e, type: 3}
+  LeftHandR: {fileID: 21300042, guid: d9b2be55118a1ed428f1334abe7b519e, type: 3}
+  LeftLegL: {fileID: 21300032, guid: d9b2be55118a1ed428f1334abe7b519e, type: 3}
+  LeftLegR: {fileID: 21300030, guid: d9b2be55118a1ed428f1334abe7b519e, type: 3}
+  BackBody: {fileID: 21300018, guid: d9b2be55118a1ed428f1334abe7b519e, type: 3}
+  BackArmL: {fileID: 21300016, guid: d9b2be55118a1ed428f1334abe7b519e, type: 3}
+  BackHandL: {fileID: 21300052, guid: d9b2be55118a1ed428f1334abe7b519e, type: 3}
+  BackFingersL: {fileID: 21300054, guid: d9b2be55118a1ed428f1334abe7b519e, type: 3}
+  BackArmR: {fileID: 21300020, guid: d9b2be55118a1ed428f1334abe7b519e, type: 3}
+  BackHandR: {fileID: 21300038, guid: d9b2be55118a1ed428f1334abe7b519e, type: 3}
+  BackFingersR: {fileID: 21300046, guid: d9b2be55118a1ed428f1334abe7b519e, type: 3}
+  BackLegL: {fileID: 21300022, guid: d9b2be55118a1ed428f1334abe7b519e, type: 3}
+  BackLegR: {fileID: 21300024, guid: d9b2be55118a1ed428f1334abe7b519e, type: 3}
+  price: 450

@@ -20,6 +20,16 @@ public class CharacterInventory : MonoBehaviour
         ownedBodyClothing = new List<BodyClothing>();
     }
 
+    public bool CheckIfHeadClothingOwned(HeadClothing clothing)
+    {
+        return ownedHeadClothing.Contains(clothing);
+    }
+
+    public bool CheckIfBodyClothingOwned(BodyClothing clothing)
+    {
+        return ownedBodyClothing.Contains(clothing);
+    }
+
     public void OpenInventory()
     {
         inventoryPanel.SetActive(true);

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
@@ -22,7 +23,27 @@ public class Shop : MonoBehaviour
     public BodyClothing[] bodyClothing;
 
     public GameObject catalog;
+    public Image catalogPage;
     public GameObject shopKeeperInteraction;
+
+    public GameObject[] pages;
+    private Color[] pageColors;
+    private int currentPageIndex = 0;
+
+    void Start()
+    {
+        ColorUtility.TryParseHtmlString("#89C1F5", out Color color1);
+        ColorUtility.TryParseHtmlString("#B2694E", out Color color2);
+        ColorUtility.TryParseHtmlString("#FAF94A", out Color color3);
+        ColorUtility.TryParseHtmlString("#FFB3F2", out Color color4);
+        ColorUtility.TryParseHtmlString("#F57B7D", out Color color5);
+        ColorUtility.TryParseHtmlString("#88F57C", out Color color6);
+        ColorUtility.TryParseHtmlString("#707575", out Color color7);
+        ColorUtility.TryParseHtmlString("#E8FCFC", out Color color8);
+        ColorUtility.TryParseHtmlString("#DAA1E2", out Color color9);
+
+        pageColors = new Color[9] { color1, color2, color3, color4, color5, color6, color7, color8, color9 };
+    }
 
     public void OpenCatalog()
     {
@@ -46,13 +67,43 @@ public class Shop : MonoBehaviour
         shopKeeperInteraction.SetActive(false);
     }
 
+    public void TurnCatalogPageLeft()
+    {
+        if (currentPageIndex == 0)
+        {
+            CloseCatalog();
+        }
+        else
+        {
+            pages[currentPageIndex].SetActive(false);
+            currentPageIndex -= 1;
+            catalogPage.color = pageColors[currentPageIndex];
+            pages[currentPageIndex].SetActive(true);
+        }   
+    }
+
+    public void TurnCatalogPageRight()
+    {
+        if (currentPageIndex == pages.Length - 1)
+        {
+            CloseCatalog();
+        }
+        else
+        {
+            pages[currentPageIndex].SetActive(false);
+            currentPageIndex += 1;
+            catalogPage.color = pageColors[currentPageIndex];
+            pages[currentPageIndex].SetActive(true);
+        }
+    }
+
     public void PurchaseHeadClothing(int id)
     {
         if (id < headClothing.Length)
         {
             HeadClothing clothing = headClothing[id];
 
-            if (CurrencyManager.instance.CurrencyCount >= clothing.Price)
+            if (!CharacterManager.instance.characterInventory.CheckIfHeadClothingOwned(clothing) && CurrencyManager.instance.CurrencyCount >= clothing.Price)
             {
                 if (CurrencyManager.instance.UpgradeCurrencyCount(-clothing.Price))
                 {
@@ -68,7 +119,7 @@ public class Shop : MonoBehaviour
         {
             BodyClothing clothing = bodyClothing[id];
 
-            if (CurrencyManager.instance.CurrencyCount >= clothing.Price)
+            if (!CharacterManager.instance.characterInventory.CheckIfBodyClothingOwned(clothing) && CurrencyManager.instance.CurrencyCount >= clothing.Price)
             {
                 if (CurrencyManager.instance.UpgradeCurrencyCount(-clothing.Price))
                 {

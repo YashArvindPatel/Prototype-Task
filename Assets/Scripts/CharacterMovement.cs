@@ -38,6 +38,11 @@ public class CharacterMovement : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
 
         HandleAnimations();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     void HandleAnimations()
