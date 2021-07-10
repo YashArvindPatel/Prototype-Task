@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CharacterManager : MonoBehaviour
 {
+    //Singleton of CharacterManager
     public static CharacterManager instance;
 
     private void Awake()

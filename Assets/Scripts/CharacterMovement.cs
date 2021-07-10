@@ -5,12 +5,16 @@ using UnityEngine.Animations;
 
 public class CharacterMovement : MonoBehaviour
 {
+    //Private Variables
     private Vector2 movement;
     private Rigidbody2D rb2D;
     private Animator animator;
+
+    //Public Variables
     public float charSpeed;
     public GameObject[] playerViews;
 
+    //Possible Directions for Character
     public enum Direction
     {
         Front = 0,
@@ -19,6 +23,7 @@ public class CharacterMovement : MonoBehaviour
         Left = 3
     }
 
+    //Possible States for Character
     public enum State
     {
         Idle = 0,
@@ -34,17 +39,20 @@ public class CharacterMovement : MonoBehaviour
 
     void Update()
     {
+        //Get Input from User to control the Character
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
         HandleAnimations();
 
+        //Check if 'ESC' Key is pressed and quit Application if true
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
         }
     }
 
+    //Check Character Direction from Input and change Player view accordingly as well as set State of Character again depending on the Input
     void HandleAnimations()
     {
         if (movement.y > 0)
@@ -89,6 +97,7 @@ public class CharacterMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        //Move the Character according to Input. Since using physics, the operation is carried out in a FixedUpdate
         rb2D.MovePosition(rb2D.position + movement.normalized * charSpeed * Time.fixedDeltaTime);
     }
 }

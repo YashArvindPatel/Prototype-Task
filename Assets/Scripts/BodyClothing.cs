@@ -41,8 +41,10 @@ public class BodyClothing : ScriptableObject
     public Sprite BackLegL;
     public Sprite BackLegR;
 
+    //Private Variable
     [SerializeField]
     private int price;
 
+    //Property
     public int Price { get { return price; } set { price = value; } }
 }

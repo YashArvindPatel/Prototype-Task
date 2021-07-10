@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    //Singleton of AudioManager
     public static AudioManager instance;
 
     private void Awake()
@@ -18,9 +19,11 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    //Public Variables
     public AudioSource source;
     public AudioClip[] clips;
 
+    //Play Single Audio Clip 
     public void PlaySingleClip(int index)
     {
         source.PlayOneShot(clips[index]);

@@ -5,17 +5,19 @@ using UnityEngine.UI;
 
 public class CharacterInventory : MonoBehaviour
 {
+    //Private variables to store Owned Clothing 
     private List<HeadClothing> ownedHeadClothing;
     private List<BodyClothing> ownedBodyClothing;
 
+    //Public Variables
     public GameObject inventoryPanel;
     public GameObject equipmentPanel;
     public GameObject itemSlot;
-
     public GameObject changeRoomInteraction;
 
     void Start()
     {
+        //Initalize the Lists for storing Clothing Data
         ownedHeadClothing = new List<HeadClothing>();
         ownedBodyClothing = new List<BodyClothing>();
     }
@@ -56,6 +58,7 @@ public class CharacterInventory : MonoBehaviour
         changeRoomInteraction.SetActive(false);
     }
 
+    //Add Head Clothing to List and instantiate corresponding Item Slot to hold Clothing Info
     public void AddHeadClothing(HeadClothing clothing)
     {
         ownedHeadClothing.Add(clothing);
@@ -67,6 +70,7 @@ public class CharacterInventory : MonoBehaviour
         AudioManager.instance.PlaySingleClip((int)SoundIndexes.BUY_OR_SELL);
     }
 
+    //Add Body Clothing to List and instantiate corresponding Item Slot to hold Clothing Info
     public void AddBodyClothing(BodyClothing clothing)
     {
         ownedBodyClothing.Add(clothing);
@@ -78,6 +82,7 @@ public class CharacterInventory : MonoBehaviour
         AudioManager.instance.PlaySingleClip((int)SoundIndexes.BUY_OR_SELL);
     }
 
+    //Remove Head Clothing from the List, the corresponding Item Slot GameObject is destroyed 
     public void RemoveHeadClothing(HeadClothing clothing)
     {
         ownedHeadClothing.Remove(clothing);
@@ -85,6 +90,7 @@ public class CharacterInventory : MonoBehaviour
         AudioManager.instance.PlaySingleClip((int)SoundIndexes.BUY_OR_SELL);
     }
 
+    //Remove Body Clothing from the List, the corresponding Item Slot GameObject is destroyed 
     public void RemoveBodyClothing(BodyClothing clothing)
     {
         ownedBodyClothing.Remove(clothing);

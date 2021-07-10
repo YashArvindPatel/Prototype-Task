@@ -7,6 +7,7 @@ public class CharacterInteraction : MonoBehaviour
     public readonly string tag1 = "ChangeRoom";
     public readonly string tag2 = "Shopkeeper";
 
+    //Check if Player Collider enters within the range of an Interactable Object & trigger Interaction
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag(tag1))
@@ -19,6 +20,7 @@ public class CharacterInteraction : MonoBehaviour
         }
     }
 
+    //Check if Player Collider exits from the range of an Interactable Object & close Interaction
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag(tag1))
@@ -33,6 +35,7 @@ public class CharacterInteraction : MonoBehaviour
 
     void Update()
     {
+        //Check if 'Q' Key is pressed and trigger Interaction if within range of an Interactable Object
         if (Input.GetKeyDown(KeyCode.Q))
         {
             if (CharacterManager.instance.characterInventory.changeRoomInteraction.activeSelf)
@@ -41,6 +44,7 @@ public class CharacterInteraction : MonoBehaviour
             }
         }
 
+        //Check if 'E' Key is pressed and trigger Interaction if within range of an Interactable Object
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (Shop.instance.shopKeeperInteraction.activeSelf)

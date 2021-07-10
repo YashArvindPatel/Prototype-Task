@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CharacterEquipment : MonoBehaviour
 {
+    //Reference to SpriteRenderers for all 4 directions
+
     [Header("Front")]
     public SpriteRenderer frontBody;
     public SpriteRenderer frontHelmet;
@@ -52,6 +54,7 @@ public class CharacterEquipment : MonoBehaviour
     public SpriteRenderer leftLegR;
     public SpriteRenderer leftLegL;
 
+    //Public variables to store Currently Equipped Clothing
     public HeadClothing currentHeadClothing;
     public BodyClothing currentBodyClothing;
 
@@ -65,6 +68,7 @@ public class CharacterEquipment : MonoBehaviour
         return currentBodyClothing == clothing;
     }
 
+    //Equip Head Clothing and display the same on the Character 
     public void EquipHelmet(HeadClothing clothing)
     {
         //Front
@@ -81,6 +85,8 @@ public class CharacterEquipment : MonoBehaviour
         AudioManager.instance.PlaySingleClip((int)SoundIndexes.EQUIP);
     }
 
+
+    //Equip Body Clothing and display the same on the Character 
     public void EquipBodyClothing(BodyClothing clothing)
     {
         //Front

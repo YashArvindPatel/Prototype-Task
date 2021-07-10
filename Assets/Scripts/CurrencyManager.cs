@@ -5,6 +5,7 @@ using TMPro;
 
 public class CurrencyManager : MonoBehaviour
 {
+    //Singleton of CurrencyManager
     public static CurrencyManager instance;
 
     private void Awake()
@@ -19,14 +20,17 @@ public class CurrencyManager : MonoBehaviour
         }
     }
 
+    //Private Variable for setting amount of Player Coins 
     [SerializeField]
     private int currencyCount = 500;
 
+    //Public Variable
     public TextMeshProUGUI currencyCountText;
 
+    //Property
     public int CurrencyCount { get { return currencyCount; } set { currencyCount = value; currencyCountText.text = value.ToString(); } }
 
-    public bool UpgradeCurrencyCount(int amount)
+    public bool UpdateCurrencyCount(int amount)
     {
         int initialCount = CurrencyCount;
         CurrencyCount += amount;

@@ -17,8 +17,10 @@ public class HeadClothing : ScriptableObject
     //Back
     public Sprite BackHead;
 
+    //Private Variable
     [SerializeField]
     private int price;
 
+    //Property
     public int Price { get { return price; } set { price = value; } }
 }

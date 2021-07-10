@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
+    //Singleton of Shop
     public static Shop instance;
 
     private void Awake()
@@ -19,6 +20,7 @@ public class Shop : MonoBehaviour
         }
     }
 
+    //Public Variables
     public HeadClothing[] headClothing;
     public BodyClothing[] bodyClothing;
 
@@ -27,11 +29,14 @@ public class Shop : MonoBehaviour
     public GameObject shopKeeperInteraction;
 
     public GameObject[] pages;
+
+    //Private Variables
     private Color[] pageColors;
     private int currentPageIndex = 0;
 
     void Start()
     {
+        //Parse Hexadecimal value of Color and store in pageColors array
         ColorUtility.TryParseHtmlString("#89C1F5", out Color color1);
         ColorUtility.TryParseHtmlString("#B2694E", out Color color2);
         ColorUtility.TryParseHtmlString("#FAF94A", out Color color3);
@@ -71,6 +76,7 @@ public class Shop : MonoBehaviour
         shopKeeperInteraction.SetActive(false);
     }
 
+    //Check if the Catalog page is the leftmost or not, close Catalog if it is or instead open left page
     public void TurnCatalogPageLeft()
     {
         if (currentPageIndex == 0)
@@ -88,6 +94,7 @@ public class Shop : MonoBehaviour
         }
     }
 
+    //Check if the Catalog page is the rightmost or not, close Catalog if it is or instead open right page
     public void TurnCatalogPageRight()
     {
         if (currentPageIndex == pages.Length - 1)
@@ -107,13 +114,15 @@ public class Shop : MonoBehaviour
 
     public void PurchaseHeadClothing(int id)
     {
+        //Check if given id is within the range of the headClothing array 
         if (id < headClothing.Length)
         {
             HeadClothing clothing = headClothing[id];
 
+            //Check if piece of clothing is already purchased & if there are enough coins to purchase the clothing
             if (!CharacterManager.instance.characterInventory.CheckIfHeadClothingOwned(clothing) && CurrencyManager.instance.CurrencyCount >= clothing.Price)
             {
-                if (CurrencyManager.instance.UpgradeCurrencyCount(-clothing.Price))
+                if (CurrencyManager.instance.UpdateCurrencyCount(-clothing.Price))
                 {
                     CharacterManager.instance.characterInventory.AddHeadClothing(clothing);
                 }
@@ -127,13 +136,15 @@ public class Shop : MonoBehaviour
 
     public void PurchaseBodyClothing(int id)
     {
+        //Check if given id is within the range of the headClothing array 
         if (id < bodyClothing.Length)
         {
             BodyClothing clothing = bodyClothing[id];
 
+            //Check if piece of clothing is already purchased & if there are enough coins to purchase the clothing
             if (!CharacterManager.instance.characterInventory.CheckIfBodyClothingOwned(clothing) && CurrencyManager.instance.CurrencyCount >= clothing.Price)
             {
-                if (CurrencyManager.instance.UpgradeCurrencyCount(-clothing.Price))
+                if (CurrencyManager.instance.UpdateCurrencyCount(-clothing.Price))
                 {
                     CharacterManager.instance.characterInventory.AddBodyClothing(clothing);
                 }
